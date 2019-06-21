@@ -11,12 +11,17 @@ Angular: `https://angular.io/guide/setup-local`
 Bootstrap + ngx-bootstrap: `npm install ngx-bootstrap bootstrap --save`
 
 Instalar seguintes módulos:
-npm i @angular/service-worker
-npm i @angular/material --save
-npm i ng-animate-scroll
+
+`npm i @angular/service-worker`
+
+`npm i @angular/material --save`
+
+`npm i ng-animate-scroll`
+
 
 Para iniciar a aplicação:
-ng serve 
+
+`ng serve`
 
 
 ## Development server
