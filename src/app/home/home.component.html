@@ -1,0 +1,28 @@
+<main role="main">
+  <header class="hero d-flex vw-100 vh-100 position-relative min-vw-100 min-vh-100">
+    <div class="container">
+      <div class="row mb-4">
+        <a class="mx-auto" routerLink="#">
+          <img src="../../assets/img/the-challenge-logo.svg" alt="The Challenge - Logo">
+        </a>
+        <h1 class="display-1 text-light mx-auto mt-3 mt-sm-0">The Challenge</h1>
+      </div>
+      <nav>
+        <div class="row mt-5">
+          <ul class="navbar-nav flex-row text-claro">
+            <li><a routerLink="/explorar" class="nav-link">Explorar</a></li>
+            <li><a routerLink="/filmes" class="nav-link">Filmes</a></li>
+            <li><a routerLink="/" class="nav-link">Séries</a></li>
+            <li><a routerLink="/" class="nav-link">Atores</a></li>
+          </ul>
+          <div id="search" class="col-12" routerLink="/search">
+            <form class="form-inline pl-0 pl-sm-3">
+              <input class="mx-auto pt-0 py-sm-2 col bg-transparent font-weight-lighter border-0 text-claro" type="search" placeholder="Buscar filme, série ou ator...">
+              <button class="py-4 py-sm-4 border-0 shadow-none mx-auto" type="submit">Pesquisar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+</main>

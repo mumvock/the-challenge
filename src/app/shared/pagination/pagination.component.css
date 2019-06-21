@@ -1,0 +1,15 @@
+* {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+li a {
+    color: var(--azul);
+    cursor: pointer;
+}
+li a:hover {
+    color: var(--azulesc);
+}
+.disabled {
+    cursor: auto;
+}

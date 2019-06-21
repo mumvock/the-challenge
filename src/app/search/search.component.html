@@ -1,0 +1,24 @@
+<div id="loading" *ngIf="isLoading"></div>
+<main role="main" class="mt-5">
+  <div class="container">
+    <div class="row">
+          <div id="search" class="col-12">
+            <form class="form-inline pl-0 pl-sm-3">
+              <input (keyup)="input($event)" class="mx-auto py-3 col bg-transparent font-weight-lighter border-0 text-claro" type="search" placeholder="Buscar filme, série ou ator...">
+            </form>
+          </div>
+      <div class="card-columns mt-3">
+          <div class="card border-0 position-relative" *ngFor="let movie of itemList" (click)="goToMovieDetails(movie)">
+            <img [src]="movie.backdrop_path" class="card-img-top" [alt]="movie.title">
+            <div class="card-body position-absolute">
+              <h5 class="card-title">{{ movie.title }}</h5>
+              <p class="card-text">{{ movie.overview }}</p>
+              <div class="card-footer pl-0">
+                  <span>Mais informações</span>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</main>

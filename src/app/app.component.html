@@ -1,0 +1,26 @@
+<nav class="navbar navbar-dark navbar-expand-lg bg-transparent fixed-top p-0" *ngIf="router.url !== '/home'">
+    <button class="navbar-toggler border-0" type="button" (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand ml-4 py-3" href="home">
+        <img src="../assets/img/the-challenge-logo.svg" width="30" height="30" class="d-inline-block align-top mr-1" alt="The Challenge - Logo">
+        The Challenge
+    </a>
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+        <ul class="navbar-nav text-claro ml-auto">
+            <li><a [routerLink]="['/explorar']" routerLinkActive="active" class="nav-link">Explorar</a></li>
+            <li><a [routerLink]="['/filmes']" routerLinkActive="active" class="nav-link">Filmes</a></li>
+            <li><a routerLink="#" class="nav-link">Séries</a></li>
+            <li><a routerLink="#" class="nav-link">Atores</a></li>
+        </ul>
+    </div>
+</nav>
+<div *ngIf="router.url !== '/home'" style="margin-top: 7rem;"></div>
+<router-outlet></router-outlet>
+<footer *ngIf="router.url !== '/home'">
+    <div class="container">
+        <div class="row">
+            <span class="text-secondary p-1 mx-auto">© 2019 The Challenge - Feito com <span alt="amor" name="amor">&#10084;</span> por <a href="https://github.com/mumvock" target="_blank">Vinycius Oliveira</a>.</span>
+        </div>
+    </div>
+</footer>

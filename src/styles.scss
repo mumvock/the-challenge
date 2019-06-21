@@ -1,0 +1,163 @@
+@import '~@angular/material/theming';
+@include mat-core();
+:root {
+    --claro: #D4E3D5;
+    --azul: rgb(28, 145, 149);
+    --azulesc: rgb(9, 115, 119);
+}
+.ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary {
+    background-color: rgba(0,0,0,.8);
+    border-radius: 0 !important;
+    scrollbar-color: var(--azul) transparent;
+    scrollbar-width: thin;
+    color: var(--claro);
+}
+mat-option:hover {
+    background-color: var(--azul) !important;
+}
+.ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary::-webkit-scrollbar {
+    width: 8px;
+}
+.ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary::-webkit-scrollbar-thumb  {
+    background: var(--azul);
+}
+.ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary::-webkit-scrollbar-track {
+    background: transparent;
+}
+.text-claro {
+    color: var(--claro);
+}
+html,
+body {
+    width: 100%;
+    scrollbar-color: var(--azul) transparent;
+    scrollbar-width: thin;
+}
+body {
+    background-color: #17181b;
+    background-image: url('assets/img/the-challenge-grey.svg');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 35%;
+}
+body::-webkit-scrollbar {
+    width: 8px;
+}
+body::-webkit-scrollbar-thumb  {
+    background: var(--azul);
+}
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+nav #search button {
+    background: url(/assets/img/buscar.svg) center no-repeat;
+    background-size: 17px;
+    color: transparent;
+    opacity: .5;
+}
+nav input:focus + button {
+    opacity: 1 !important;
+}
+#loading {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: rgba(23, 24, 27, .75);
+}
+#loading::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    z-index: 110;
+    width: 200px;
+    height: 200px;
+    background: url(./assets/img/carregando.svg);
+}
+#search,
+nav ul li a.nav-link {
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+}
+header.hero ul li a.nav-link,
+.navbar-expand-lg .navbar-nav .nav-link {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    font-weight: lighter;
+    text-transform: uppercase;
+    color: var(--claro);
+}
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgb(212,227,213)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+
+}
+#search {
+    background-color: rgba(0,0,0,.2) !important;
+}
+#search input {
+    overflow: hidden;
+    font-size: 2em;
+}
+.card-columns {
+    column-gap: .7rem;
+}
+.card .card-body {
+    visibility: hidden;
+    top: 0;
+}
+.card:hover .card-body {
+    visibility: visible !important;
+    z-index: 20;
+}
+.card-text {
+    font-size: .7rem;
+}
+.card {
+    transition-duration: 300ms;
+    transition-delay: 0ms;
+    cursor: pointer;
+}
+.card:hover:before {
+    background-color: rgba(0,0,0,.8);
+    -webkit-filter: blur(15px) brightness(0.7);
+    filter: blur(15px) brightness(0.7);
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.card:hover {
+    z-index: 5;
+    transform: translate3d(0px, -20px, 0px);
+    transform: scale3d(1.3, 1.3, 1.3);
+    transition-duration: 300ms;
+    transition-delay: 0ms;
+}
+.card-footer {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 0;
+    font-size: .8rem;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    border-top: 1px solid rgba(255,255,255,.35);
+}
+@media only screen and (max-width: 576px) {
+    #search input {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}

@@ -1,0 +1,7 @@
+.discover-filters{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 5px;
+    flex-wrap: wrap;
+}

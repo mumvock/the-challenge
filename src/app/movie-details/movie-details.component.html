@@ -1,0 +1,86 @@
+<main role="main" style="margin-top: -7rem">
+  <div class="hero d-flex">
+    <div class="hero-overlay" [style.background-image]="'url(' + movie.backdrop_path + ')'"></div>
+    <div class="container-fluid mx-5">
+      <div class="row">
+        <div class="movie-cover col-4" [style.background-image]="'url(' + movie.backdrop_path + ')'"></div>
+        <header class="col ml-3">
+          <h1 class="font-weight-lighter">{{ movie.title }}</h1>
+          <ul class="list-group list-group-horizontal">
+            <li class="list-group-item bg-transparent border-0 p-0"><span class="badge badge-primary badge-pill">{{ movie.release_date | date: 'y'}}</span></li>
+            <li class="list-group-item bg-transparent border-0 py-0"><span class="badge badge-primary badge-pill">{{ movie.runtime }} min.</span></li>
+            <li class="list-group-item bg-transparent border-0 py-0 pl-0"><span class="badge badge-primary badge-pill"><span class="font-weight-lighter">&#9733;</span> {{ movie.vote_average }}</span></li>
+            <li class="list-group-item bg-transparent border-0 p-0"><span class="badge badge-primary badge-pill mr-1" *ngFor="let genre of movie.genres"> {{ genre.name }}</span></li>
+          </ul>
+          <h4 class="mt-4">Sinopse</h4>
+          <p>{{movie.overview}}</p>
+
+          <div *ngIf="movie" class="movie-details">
+              <mat-tab-group (selectedIndexChange)="selectChange($event)">
+                <mat-tab label="Estrelando">
+                    <div *ngFor="let cast of movie.cast;  let i=index">
+                        <div *ngIf="i<5" style="flex-direction: row;display: flex;"> 
+                          <div [style.background-image]="'url(' + cast.imgUrl + ')'" class="cast-header-image rounded-circle" style="border: 1px solid white !important;"></div>
+                          <span class="ml-2" style="line-height: 2.3rem;">{{ cast.name }} <small> como {{ cast.character }}</small></span>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Trailers">
+                  <mat-progress-spinner
+                    color="primary"
+                    mode="indeterminate"
+                    *ngIf="!movie.videos">
+                  </mat-progress-spinner>
+                  <a
+                    *ngFor="let video of movie.videos"
+                    [title]="video.name"
+                    class="movie-trailers ng-lazyloaded"
+                    (click)="openDialog(video)"
+                    [style.background-image]="'url(' + video.imgUrl + ')'"
+                  >
+                  </a>
+                </mat-tab>
+                <mat-tab label="Reviews">
+                  <p *ngIf="movie.reviews && movie.reviews.length == 0"></p>
+                  <mat-progress-spinner
+                    color="primary"
+                    mode="indeterminate"
+                    *ngIf="!movie.reviews"
+                  >
+                  </mat-progress-spinner>
+                  <div *ngFor="let review of movie.reviews">
+                    <h4>{{ review.author }}</h4>
+                    <p>{{ review.content }}</p>
+                    <hr />
+                  </div>
+                </mat-tab>
+                <mat-tab label="Similar Movies">
+                  <p *ngIf="movie.similarMovies && movie.similarMovies.length == 0">
+                    
+                  </p>
+                  <mat-progress-spinner
+                    color="primary"
+                    mode="indeterminate"
+                    *ngIf="!movie.similarMovies"
+                  >
+                  </mat-progress-spinner>
+                  <div class="similar-movies">
+                    <div
+                      *ngFor="let sm of movie.similarMovies"
+                      class="item"
+                      (click)="goToMovieDetails(sm)"
+                    >
+                      <div
+                        class="s-movie ng-lazyloaded"
+                        [style.background-image]="'url(' + sm.poster_path + ')'"
+                      ></div>
+                    </div>
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+        </header>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,13 @@
+.custom-radio label,
+.custom-radio a {
+    color: var(--claro);
+    cursor: pointer;
+}
+.custom-control-input:checked ~ .custom-control-label {
+    color: var(--azul);
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+    color: #fff;
+    border-color: var(--azul);
+    background-color: var(--azul);
+}

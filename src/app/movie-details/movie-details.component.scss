@@ -1,0 +1,47 @@
+.hero {
+    height: calc(100vh - 25px);
+    z-index: -2;
+}
+.hero-overlay {
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    -webkit-filter: blur(15px) brightness(0.4);
+    filter: blur(15px) brightness(0.4);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.movie-cover {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 80vh;
+    -webkit-box-shadow: 0px 0px 15px 0px #000000; 
+    box-shadow: 0px 0px 15px 0px #000000;
+}
+.container-fluid > .row {
+    margin-top: 13vh;
+    overflow: hidden;
+}
+.badge-primary {
+    background-color: var(--azul);
+}
+.cast-header-image {
+    width: 38px;
+    height: 38px;
+    z-index: 20;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+.cast-header-image:hover {
+    width: 80px !important;
+    height: 80px !important;
+    cursor: none;
+}

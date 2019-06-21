@@ -1,0 +1,47 @@
+<div id="loading" *ngIf="isLoading"></div>
+<section id="scroll-top">
+    <div class="container">
+        <div class="row">
+            <header>
+                <h1 class="display-4">Descubra novos filmes</h1>
+                <h4>Explorando por:</h4>
+            </header>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" name="customRadioInline1" class="custom-control-input" checked>
+                <label class="custom-control-label" for="customRadioInline1">Filmes</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <a [routerLink]="['/series']">
+                    <input type="radio" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline2">Séries</label>
+                </a>
+            </div>
+        </div>
+        <app-filter (filterChange)="changeSelection($event)"></app-filter>
+    </div>
+</section>
+<main role="main" class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="card-columns">
+            <div class="card border-0 position-relative" *ngFor="let movie of itemList" (click)="goToMovieDetails(movie)">
+              <img [src]="movie.backdrop_path" class="card-img-top" [alt]="movie.title">
+              <div class="card-body position-absolute">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">{{ movie.overview }}</p>
+                <div class="card-footer pl-0">
+                    <span>Mais informações</span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <pagination [pager]="pager" (changePage)="changePage($event)"></pagination>
+</main>
